@@ -1,0 +1,22 @@
+{
+  "name": "jarvis-fry-house",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "node build.mjs boarding-wellbeing.html",
+    "test": "npm run build && node --test *.test.mjs",
+    "dev": "npm run build && wrangler dev",
+    "demo": "npm run build && node demo-server.mjs",
+    "test:browser": "npm run build && node --test tests/browser.test.mjs",
+    "check": "npm test && npm run test:browser && npm run deploy:dry-run",
+    "deploy:dry-run": "npm run build && wrangler deploy --dry-run --outdir .wrangler/handoff-build"
+  },
+  "devDependencies": {
+    "playwright": "^1.65.0",
+    "wrangler": "4.158.0"
+  }
+}

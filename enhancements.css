@@ -1,0 +1,56 @@
+#boarding-wellbeing-preview .jx-connection { display:flex;align-items:center;gap:10px;font-size:11px;line-height:1.5;color:#b8c7db;margin:14px 0; }
+.jc-demo-banner { padding:12px 22px;background:#e0e9f4;color:#12263e;font:13px/1.6 system-ui;position:relative;z-index:15;overflow-wrap:anywhere; }
+.jc-demo-actions { display:flex;flex-wrap:wrap;gap:8px;margin-top:7px; }
+.jc-demo-account { margin:0; }
+.jc-demo-account button { background:#143650;border:1px solid #476883;border-radius:7px;padding:8px 18px;color:#fff;font:600 13px system-ui;cursor:pointer; }
+#boarding-wellbeing-preview .jx-orbit { flex:none;width:22px;height:22px;border:1px solid #52759b;border-radius:50%;position:relative; }
+#boarding-wellbeing-preview .jx-orbit::before,#boarding-wellbeing-preview .jx-orbit::after { content:"";position:absolute;inset:3px;border:1px solid #92b7e0;border-radius:50%;transform:rotate(55deg) scaleX(.5); }
+#boarding-wellbeing-preview .jx-orbit::after { transform:rotate(-55deg) scaleX(.5); }
+#boarding-wellbeing-preview [data-busy="true"] .jx-orbit { animation:jx-orbit 1.8s linear infinite;box-shadow:0 0 18px #6499d955; }
+#boarding-wellbeing-preview .jx-goals-layout { display:grid;grid-template-columns:1.2fr 1fr;gap:20px;align-items:start; }
+#boarding-wellbeing-preview .jx-goal-list { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px; }
+#boarding-wellbeing-preview .jx-goal-card { padding:24px;border:1px solid #3c526b;background:linear-gradient(135deg,#172a40,#101d2f);border-radius:18px;animation:jx-enter .25s ease-out; }
+#boarding-wellbeing-preview .jx-goal-heading { display:flex;align-items:flex-start;justify-content:space-between;gap:16px; }
+#boarding-wellbeing-preview .jx-goal-heading h3 { margin:0;font-size:20px;line-height:1.4;overflow-wrap:anywhere; }
+#boarding-wellbeing-preview .jx-pill { border:1px solid #7192b5;color:#d5e7fd;border-radius:20px;padding:3px 9px;font-size:12px;white-space:nowrap; }
+#boarding-wellbeing-preview .jx-meta { color:#b8c7db;font-size:13px;line-height:1.6;display:block;overflow-wrap:anywhere; }
+#boarding-wellbeing-preview .jx-goal-card progress { width:100%;height:7px;accent-color:#96b9e4;margin:10px 0 16px; }
+#boarding-wellbeing-preview .jx-goals label { display:grid;gap:7px;color:#cbd6e5;font-size:13px; }
+#boarding-wellbeing-preview .jx-goals :is(input,textarea,select) { box-sizing:border-box;width:100%;min-width:0;background:#0e1b2c;border:1px solid #4d627b;border-radius:8px;padding:11px 12px;color:#f0f5fc;font:inherit; }
+#boarding-wellbeing-preview .jx-goals textarea { resize:vertical; }
+#boarding-wellbeing-preview .jx-goals .bw-inline-field { display:flex;align-items:center;gap:8px; }
+#boarding-wellbeing-preview .jx-goals input[type="checkbox"] { width:18px; }
+#boarding-wellbeing-preview .jx-goals form { display:grid;gap:14px;margin:14px 0; }
+#boarding-wellbeing-preview .jx-goals button { width:fit-content; }
+#boarding-wellbeing-preview .jx-milestones { padding-left:22px; }
+#boarding-wellbeing-preview .jx-milestones > li { padding:12px 0;border-bottom:1px solid #31465e; }
+#boarding-wellbeing-preview .jx-evidence { color:#abd8bc;font-size:13px;overflow-wrap:anywhere; }
+#boarding-wellbeing-preview .jx-next-steps { list-style:none;padding:0; }
+#boarding-wellbeing-preview .jx-next-steps li { padding:12px 0;border-bottom:1px solid #31465e; }
+#boarding-wellbeing-preview .jx-skeleton { display:grid;gap:14px;padding:24px;background:#16263b;border-radius:16px; }
+#boarding-wellbeing-preview .jx-skeleton span { display:block;height:20px;border-radius:6px;background:linear-gradient(90deg,#233c59,#3a5878,#233c59);background-size:200% 100%;animation:jx-shimmer 1.5s ease-in-out infinite; }
+#boarding-wellbeing-preview .jx-skeleton span:nth-child(2) { width:70%; } #boarding-wellbeing-preview .jx-skeleton span:last-child { width:45%; }
+#boarding-wellbeing-preview .jx-agenda { border-top:1px solid #3c526b;margin-top:28px;padding-top:24px; }
+#boarding-wellbeing-preview .jx-agenda-list { max-height:600px;overflow:auto;list-style:none;padding:0; }
+#boarding-wellbeing-preview .jx-agenda-list li { padding:14px 0;border-bottom:1px solid #31465e;display:grid;gap:4px; }
+#boarding-wellbeing-preview .jx-agenda-link { border:0;background:transparent;color:#e9f0fc;text-align:left;font-size:16px;padding:2px 0;cursor:pointer;width:fit-content; }
+#boarding-wellbeing-preview kbd { font-size:10px;opacity:.7; }
+#boarding-wellbeing-preview .jx-command-dialog { background:#132237;color:#eef5ff;border:1px solid #6681a3;border-radius:20px;width:min(90vw,520px);padding:24px;box-shadow:0 30px 100px #0008; }
+#boarding-wellbeing-preview .jx-command-dialog::backdrop { background:#020a16aa;backdrop-filter:blur(5px); }
+#boarding-wellbeing-preview .jx-command-dialog input { width:100%;box-sizing:border-box;background:#0b1729;color:#f0f5fc;border:1px solid #607a98;border-radius:9px;padding:14px;font:inherit; }
+#boarding-wellbeing-preview .jx-command-dialog ul { list-style:none;margin:15px 0 0;padding:0;max-height:50vh;overflow:auto; }
+#boarding-wellbeing-preview .jx-command-dialog li button { width:100%;text-align:left;margin:3px 0; }
+#boarding-wellbeing-preview :focus-visible { outline:2px solid #c2ddff;outline-offset:4px; }
+#boarding-wellbeing-preview [hidden] { display:none !important; }
+#boarding-wellbeing-preview[data-animation-paused="true"] :is(.jx-orbit,.jx-skeleton span) { animation-play-state:paused; }
+@keyframes jx-orbit { to { transform:rotate(360deg); } }
+@keyframes jx-shimmer { to { background-position:-200% 0; } }
+@keyframes jx-enter { from { opacity:0;transform:translateY(5px); } to { opacity:1;transform:translateY(0); } }
+@media (prefers-reduced-motion:reduce) { #boarding-wellbeing-preview *,#boarding-wellbeing-preview *::before,#boarding-wellbeing-preview *::after { animation:none !important;transition:none !important;scroll-behavior:auto !important; } }
+@media(max-width:800px) { #boarding-wellbeing-preview .jx-goals-layout,#boarding-wellbeing-preview .jx-goal-list { grid-template-columns:1fr; } #boarding-wellbeing-preview .jx-goal-card { padding:18px; } }
+@media(max-width:899px) {
+  #boarding-wellbeing-preview .jc-private .jc-side-status { display:flex;flex-wrap:wrap;align-items:center;gap:10px; }
+  #boarding-wellbeing-preview .jc-private .jc-side-status > [data-open-commands],
+  #boarding-wellbeing-preview .jc-private .jc-side-status > [data-connection] { display:flex;font-size:11px;margin:0; }
+  #boarding-wellbeing-preview .jc-private .jc-side-status > form { margin-left:auto; }
+}

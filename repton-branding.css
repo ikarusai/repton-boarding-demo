@@ -1,0 +1,83 @@
+/* Repton's supplied white crest, with quieter pastel accents around the interface. */
+#boarding-wellbeing-preview .jc-shell {
+  --jr-mint:#c3dfd1; --jr-lilac:#d8cceb; --jr-peach:#ebc9b8; --jr-sky:#c5d8e8;
+}
+#boarding-wellbeing-preview .jr-repton-crest { display:block; width:32px; height:47px; object-fit:contain; flex:none; filter:drop-shadow(0 0 .45px #ffffff) drop-shadow(0 0 7px #c3dfd122); }
+#boarding-wellbeing-preview .jc-private .bw-mark.jr-header-crest { display:flex; align-items:center; justify-content:center; width:34px; height:48px; flex-basis:34px; background:none; border:0; overflow:visible; }
+#boarding-wellbeing-preview .jc-private .bw-mark.jr-header-crest::before { display:none; }
+#boarding-wellbeing-preview .jl-public-brand .jl-brand-dot.jr-header-crest { display:block; width:34px; height:48px; border:0; border-radius:0; box-shadow:none; }
+#boarding-wellbeing-preview .jr-identity-line { display:flex; align-items:center; gap:13px; }
+#boarding-wellbeing-preview .jr-identity-crest { width:25px; height:37px; opacity:1; }
+#boarding-wellbeing-preview .jr-section-brand { display:flex; align-items:center; gap:10px; color:#bbcbbb; font:450 11px/1.5 var(--jl-font); letter-spacing:.025em; margin:0 0 19px; }
+#boarding-wellbeing-preview .jr-section-crest { width:22px; height:32px; opacity:.95; }
+#boarding-wellbeing-preview .jr-footer-brand { display:inline-flex; align-items:center; gap:12px; color:#b2bbae; font:400 11px/1.5 var(--jl-font); }
+#boarding-wellbeing-preview .jr-footer-crest { width:23px; height:34px; opacity:.7; }
+#boarding-wellbeing-preview .bw-footer:not([hidden]) { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+#boarding-wellbeing-preview .jl-public-footer { align-items:center; }
+
+/* A small colour language: lavender for plans, sage for progress, blue for focus. */
+#boarding-wellbeing-preview .jc-private .bw-menu .bw-menu-item[aria-current="page"] {
+  color:var(--jr-mint); border-color:#809d8b55; background:#c3dfd110; box-shadow:0 0 21px #b8d9c90d;
+}
+#boarding-wellbeing-preview .jc-private .bw-menu .bw-menu-item[data-page="calendar"][aria-current="page"],
+#boarding-wellbeing-preview .jc-private .bw-menu .bw-menu-item[data-page="academic"][aria-current="page"] {
+  color:var(--jr-lilac); border-color:#a497bb66; background:#d8cceb10; box-shadow:0 0 21px #cab8e00e;
+}
+#boarding-wellbeing-preview .jc-private .bw-menu .bw-menu-item[data-page="wellbeing"][aria-current="page"],
+#boarding-wellbeing-preview .jc-private .bw-menu .bw-menu-item[data-page="pastoral"][aria-current="page"] {
+  color:var(--jr-peach); border-color:#b79c8b66; background:#ebc9b810; box-shadow:0 0 21px #ebc9b80d;
+}
+#boarding-wellbeing-preview .jc-shell :is(.bw-primary-button,.jc-public-form button) {
+  background:#d9e7dd; border-color:#d9e7dd; color:#18221c; box-shadow:0 3px 20px #b6d4c219;
+}
+#boarding-wellbeing-preview .jc-shell :is(.bw-primary-button,.jc-public-form button):hover {
+  background:#e6f2e9; border-color:#e6f2e9; box-shadow:0 4px 26px #bddccf2b;
+}
+#boarding-wellbeing-preview .jc-shell [data-screen="calendar"] .bw-primary-button,
+#boarding-wellbeing-preview .jc-shell .bw-calendar-views button[aria-pressed="true"] {
+  background:var(--jr-lilac); border-color:var(--jr-lilac); color:#211b2a; box-shadow:0 3px 20px #cdbbe31a;
+}
+#boarding-wellbeing-preview .jc-shell [data-screen="study"] .bw-primary-button,
+#boarding-wellbeing-preview .jc-shell .bw-study-presets button[aria-pressed="true"] {
+  background:var(--jr-sky); border-color:var(--jr-sky); color:#19242d; box-shadow:0 3px 20px #b5d0e31a;
+}
+#boarding-wellbeing-preview .jc-shell :focus-visible { outline-color:var(--jr-lilac); }
+#boarding-wellbeing-preview .jc-shell :is(input,textarea,select):focus { border-color:#b7a9cd; box-shadow:0 0 0 3px #d8cceb0c; }
+#boarding-wellbeing-preview .jc-grid .jc-globe-copy h1 em { color:var(--jr-mint); }
+#boarding-wellbeing-preview .jc-grid .jl-home-orb,
+#boarding-wellbeing-preview .jl-public-intro .jarvis-orb {
+  border-radius:50%; background:radial-gradient(ellipse at 32% 42%,#b9dbcd0d,transparent 58%),radial-gradient(ellipse at 67% 58%,#d2bfe20d,transparent 58%);
+  filter:drop-shadow(0 0 18px #bdd9cf0a);
+}
+#boarding-wellbeing-preview .jc-grid .bw-jarvis-orb { background:radial-gradient(circle at 35% 30%,#798c7c,#253029 70%); color:var(--jr-mint); border-color:#9bb9a866; box-shadow:0 0 22px #bddccf1c; }
+#boarding-wellbeing-preview .jc-grid :is(.jc-brief,.jc-progress) { border-color:#a4c5af35; box-shadow:0 5px 24px #b8d8c405; }
+#boarding-wellbeing-preview .jc-grid :is(.jc-schedule,.jc-academic) { border-color:#c6b5d338; box-shadow:0 5px 24px #b8a5cc05; }
+#boarding-wellbeing-preview .jc-grid :is(.jc-record,.jc-feed) { border-color:#d5b69e35; box-shadow:0 5px 24px #e6bfa505; }
+#boarding-wellbeing-preview .jc-grid :is(.jc-brief,.jc-progress) .bw-jarvis-label { color:var(--jr-mint); }
+#boarding-wellbeing-preview .jc-grid :is(.jc-schedule,.jc-academic) .bw-jarvis-label { color:var(--jr-lilac); }
+#boarding-wellbeing-preview .jc-grid :is(.jc-record,.jc-feed) .bw-jarvis-label { color:var(--jr-peach); }
+#boarding-wellbeing-preview .jc-shell :is(.bw-week-day,.bw-calendar-date)[data-today="true"] { background:#d8cceb0d; border-color:#a89ab9; box-shadow:inset 0 0 24px #d8cceb06; }
+#boarding-wellbeing-preview .jx-goal-card progress { accent-color:var(--jr-mint); }
+#boarding-wellbeing-preview .jx-goal-card .jx-evidence { color:var(--jr-mint); }
+#boarding-wellbeing-preview .jc-shell .jx-pill { background:#c3dfd110; color:var(--jr-mint); border-color:#b9d6c63a; }
+#boarding-wellbeing-preview .jx-orbit { border-color:#b8cebd; }
+#boarding-wellbeing-preview .jx-orbit::before { border-color:var(--jr-lilac); }
+#boarding-wellbeing-preview .jx-orbit::after { border-color:var(--jr-peach); }
+#boarding-wellbeing-preview [data-busy="true"] .jx-orbit { box-shadow:0 0 17px #c3dfd137; }
+#boarding-wellbeing-preview .jx-skeleton span { background:linear-gradient(90deg,#222722,#3d4440,#2d2933,#222722); background-size:200% 100%; }
+#boarding-wellbeing-preview .jl-public-signin { border-color:#b9d3bc36; background:#141713; box-shadow:0 14px 60px #b9d3bc06; }
+#boarding-wellbeing-preview .jl-public-support { border-color:#d4baa736; background:#171410; box-shadow:0 8px 35px #d4baa706; }
+
+@media(max-width:620px) {
+  #boarding-wellbeing-preview .jr-identity-line { justify-content:center; }
+  #boarding-wellbeing-preview .jr-section-brand { margin-bottom:16px; font-size:11px; }
+  #boarding-wellbeing-preview .jr-identity-crest { width:22px; height:32px; }
+  #boarding-wellbeing-preview .jc-private .bw-mark.jr-header-crest { width:27px; height:40px; flex-basis:27px; }
+  #boarding-wellbeing-preview .jc-private .bw-mark.jr-header-crest img { width:27px; height:40px; }
+  #boarding-wellbeing-preview .jl-public-brand .jl-brand-dot.jr-header-crest { width:28px; height:41px; }
+  #boarding-wellbeing-preview .jl-public-brand .jr-header-crest img { width:28px; height:41px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  #boarding-wellbeing-preview .jr-repton-crest,
+  #boarding-wellbeing-preview .jarvis-orb { transition:none; }
+}

@@ -1,0 +1,619 @@
+body.jc-body {
+  margin: 0;
+  background: #050d1b;
+}
+
+#boarding-wellbeing-preview .jc-shell {
+  --bw-surface: #050d1b;
+  --bw-header-bg: #071624;
+  --bw-card: #091a2d;
+  --bw-ink: #e2efff;
+  --bw-muted: #a5bdd2;
+  --bw-line: #1d3a53;
+  --bw-line-strong: #2c6485;
+  --bw-glass-edge: #244863;
+  --bw-accent: #6de1f8;
+  --bw-accent-soft: #b5edff;
+  --bw-accent-ink: #041521;
+  --bw-accent-hover: #b2f3ff;
+  --bw-field: #081628;
+  --bw-icon-bg: #10304a;
+  --bw-selection: #113453;
+  --jc-calendar: #fde68a;
+  --jc-rewards: #6ee7b7;
+  --jc-sanctions: #fda4af;
+  --jc-attendance: #bae6fd;
+  --jc-academic: #ddd6fe;
+  --jc-wellbeing: #99f6e4;
+  --bw-radius: 9px;
+  --bw-glass: linear-gradient(150deg, #0d263d, #08182b 68%);
+  --bw-panel: var(--bw-glass);
+  display: grid;
+  min-height: 100svh;
+  background: radial-gradient(ellipse at 48% 0%, #102b50, transparent 54%), var(--bw-surface);
+  color: var(--bw-ink);
+  color-scheme: dark;
+  font: 14px/1.45 Inter, "Segoe UI", system-ui, sans-serif;
+}
+
+#boarding-wellbeing-preview .jc-shell *,
+#boarding-wellbeing-preview .jc-shell *::before,
+#boarding-wellbeing-preview .jc-shell *::after { box-sizing: border-box; }
+
+#boarding-wellbeing-preview .jc-main {
+  width: 100%;
+  max-width: 1600px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+#boarding-wellbeing-preview .jc-grid {
+  display: grid;
+  grid-template-columns: minmax(165px, .92fr) minmax(220px, 2fr) minmax(220px, 1.12fr);
+  grid-template-areas:
+    "top top top"
+    "brief core feed"
+    "schedule schedule academic"
+    "record progress shortcuts"
+    "ask ask ask";
+  gap: 9px;
+  align-items: stretch;
+}
+
+#boarding-wellbeing-preview .jc-grid .bw-command-deck,
+#boarding-wellbeing-preview .jc-grid .bw-core-stage,
+#boarding-wellbeing-preview .jc-grid .bw-home-board,
+#boarding-wellbeing-preview .jc-grid .bw-jarvis-grid { display: contents; }
+
+#boarding-wellbeing-preview .jc-grid .bw-command-deck::after,
+#boarding-wellbeing-preview .jc-grid .bw-command-footer { display: none; }
+
+#boarding-wellbeing-preview .jc-side {
+  color: var(--bw-ink);
+  background: linear-gradient(170deg, #10344d 0, #071725 19%, #071321 86%);
+  border: 1px solid #1d405b;
+  box-shadow: none;
+}
+
+#boarding-wellbeing-preview .jc-brand,
+#boarding-wellbeing-preview .jc-private .bw-brand {
+  color: var(--bw-ink);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#boarding-wellbeing-preview .jc-brand strong,
+#boarding-wellbeing-preview .jc-private .bw-brand strong {
+  display: block;
+  font: 750 16px/1.2 ui-monospace, monospace;
+  letter-spacing: .19em;
+}
+
+#boarding-wellbeing-preview .jc-brand small,
+#boarding-wellbeing-preview .jc-private .bw-brand small {
+  display: block;
+  margin-top: 3px;
+  color: var(--bw-muted);
+  font: 650 9px/1.3 ui-monospace, monospace;
+  letter-spacing: .045em;
+  text-transform: uppercase;
+  white-space: normal;
+}
+
+#boarding-wellbeing-preview .jc-brand-mark {
+  width: 34px;
+  aspect-ratio: 1;
+  flex: none;
+  border-radius: 50%;
+  border: 1px solid #5ac9f6;
+  background: radial-gradient(circle, #aef6ff 0 6%, #35bce8 10%, #10374d 20% 30%, #5bd2f5 34% 37%, #123349 41% 57%, #2c7495 61% 65%, transparent 69%);
+  box-shadow: 0 0 15px #3bd3fa5e, inset 0 0 12px #3bd3fa35;
+}
+
+#boarding-wellbeing-preview .jc-public .jc-side { padding: 12px; }
+#boarding-wellbeing-preview .jc-public-nav { display: grid; gap: 4px; }
+#boarding-wellbeing-preview .jc-public-nav a {
+  color: var(--bw-ink);
+  border: 1px solid transparent;
+  border-radius: 6px;
+  text-decoration: none;
+  padding: 8px 9px;
+}
+#boarding-wellbeing-preview .jc-public-nav a:hover,
+#boarding-wellbeing-preview .jc-public-nav a[aria-current="page"] {
+  border-color: #2b6686;
+  background: #10334b;
+  color: #c0f4ff;
+}
+
+#boarding-wellbeing-preview .jc-side-status {
+  display: grid;
+  gap: 5px;
+  align-content: start;
+  margin-top: auto;
+  padding: 10px;
+  border: 1px solid #234761;
+  border-radius: 8px;
+  background: radial-gradient(ellipse at 30% 3%, #143650, #0a1a2c 76%);
+}
+#boarding-wellbeing-preview .jc-side-status p { margin: 0; font-size: 12px; }
+#boarding-wellbeing-preview .jc-side-status a,
+#boarding-wellbeing-preview .jc-side-status button { color: var(--bw-accent-soft); }
+#boarding-wellbeing-preview .jc-side-status form { margin: 0; }
+
+#boarding-wellbeing-preview .jc-panel,
+#boarding-wellbeing-preview .jc-grid .jc-panel {
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid #244863;
+  border-radius: 9px;
+  background: radial-gradient(ellipse at 8% 0%, #12304a, transparent 75%), #08192a;
+  box-shadow: inset 0 1px #a2d9ff0e, 0 7px 20px #0207125c;
+}
+
+#boarding-wellbeing-preview .jc-grid .jc-panel h2 {
+  margin: 2px 0 4px;
+  color: var(--bw-ink);
+  font-size: 16px;
+  font-weight: 760;
+  letter-spacing: -.015em;
+}
+#boarding-wellbeing-preview .jc-grid .bw-jarvis-panel { gap: 3px; }
+
+#boarding-wellbeing-preview .jc-grid .jc-panel p {
+  margin: 5px 0 3px;
+  color: var(--bw-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+#boarding-wellbeing-preview .jc-label,
+#boarding-wellbeing-preview .jc-grid .bw-jarvis-label {
+  color: #86c8e4;
+  font: 700 10px/1.4 ui-monospace, monospace;
+  letter-spacing: .075em;
+  text-transform: uppercase;
+}
+
+#boarding-wellbeing-preview .jc-top,
+#boarding-wellbeing-preview .jc-grid .jc-top {
+  grid-area: top;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 48px;
+  gap: 5px 10px;
+  padding: 5px 9px;
+  border-bottom: 1px solid #23445d;
+}
+
+#boarding-wellbeing-preview .jc-top time,
+#boarding-wellbeing-preview .jc-top .bw-command-clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  color: var(--bw-muted);
+  font: 650 10px/1.3 ui-monospace, monospace;
+}
+
+#boarding-wellbeing-preview .jc-top time strong {
+  color: var(--bw-accent);
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  font-variant-numeric: tabular-nums;
+}
+#boarding-wellbeing-preview .jc-top .bw-command-clock > span:last-child { display: none; }
+#boarding-wellbeing-preview .jc-top .jc-badge,
+#boarding-wellbeing-preview .jc-top .bw-command-badge {
+  padding: 4px 8px;
+  border: 1px solid #285371;
+  border-radius: 99px;
+  background: #0e2a42;
+  color: #b7eafa;
+  font: 700 10px/1.3 ui-monospace, monospace;
+  text-transform: uppercase;
+}
+
+#boarding-wellbeing-preview .jc-brief { grid-area: brief; }
+#boarding-wellbeing-preview .jc-grid .jc-brief { width: 100%; align-self: stretch; }
+#boarding-wellbeing-preview .jc-grid .bw-next-event { color: var(--bw-ink); font-weight: 740; }
+#boarding-wellbeing-preview .jc-grid .bw-next-event span { color: var(--bw-ink); }
+#boarding-wellbeing-preview .jc-overview-list { display: grid; gap: 5px; margin-top: 8px; }
+#boarding-wellbeing-preview .jc-overview-list > div {
+  display: grid;
+  gap: 2px;
+  padding: 5px 7px;
+  border: 1px solid #224860;
+  border-radius: 6px;
+  background: #0a2035;
+  color: var(--bw-muted);
+  font-size: 11px;
+}
+#boarding-wellbeing-preview .jc-overview-list strong { color: #bbf3ff; font: 750 12px/1.3 ui-monospace, monospace; }
+#boarding-wellbeing-preview .jc-core,
+#boarding-wellbeing-preview .jc-grid .jc-core {
+  position: relative;
+  display: grid;
+  grid-area: core;
+  place-items: center;
+  overflow: hidden;
+  min-height: 236px;
+  width: 100%;
+  aspect-ratio: auto;
+  padding: 0;
+  isolation: isolate;
+  background: radial-gradient(ellipse, #112c50, #071626 71%);
+}
+#boarding-wellbeing-preview .jc-grid .jc-core::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: url("__JARVIS_GLOBE__") center / min(112%, 660px) 100% no-repeat;
+  transform: translate(var(--jc-core-x, 0px), var(--jc-core-y, 0px));
+  transition: transform 140ms ease-out;
+}
+#boarding-wellbeing-preview .jc-grid .jc-core::after { display: none; }
+#boarding-wellbeing-preview .jc-grid .jc-core .bw-core-assembly {
+  position: relative;
+  inset: auto;
+  transform: none;
+}
+#boarding-wellbeing-preview .jc-globe-copy {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding: 0 8px 12px;
+  text-shadow: 0 0 18px #051424, 0 2px 12px #031122;
+}
+#boarding-wellbeing-preview .jc-grid .jc-globe-copy h1 {
+  margin: 0;
+  padding-left: .19em;
+  color: #8eecff;
+  font: 850 clamp(31px, 4.1vw, 54px)/1 ui-monospace, monospace;
+  letter-spacing: .19em;
+  text-shadow: 0 0 24px #50cfff85, 0 3px 15px #0b2c4a;
+}
+#boarding-wellbeing-preview .jc-core-caption {
+  margin-top: 8px;
+  color: #8ed9ef;
+  font: 700 10px/1.3 ui-monospace, monospace;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+#boarding-wellbeing-preview .jc-greeting { color: #e4f6ff; margin-top: 9px; font-size: 13px; }
+#boarding-wellbeing-preview .jc-grid .bw-core-marker { bottom: 9px; color: #8dc7df; font-size: 8px; letter-spacing: .13em; }
+#boarding-wellbeing-preview .jc-feed { grid-area: feed; }
+#boarding-wellbeing-preview .jc-schedule { grid-area: schedule; }
+#boarding-wellbeing-preview .jc-academic { grid-area: academic; }
+#boarding-wellbeing-preview .jc-record { grid-area: record; }
+#boarding-wellbeing-preview .jc-progress { grid-area: progress; }
+#boarding-wellbeing-preview .jc-shortcuts { grid-area: shortcuts; }
+#boarding-wellbeing-preview .jc-ask { grid-area: ask; }
+
+#boarding-wellbeing-preview .jc-list { list-style: none; margin: 6px 0 2px; padding: 0; }
+#boarding-wellbeing-preview .jc-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 4px 8px;
+  padding: 5px 0;
+  border-bottom: 1px solid #23435c;
+  color: var(--bw-muted);
+  font-size: 11px;
+  overflow-wrap: anywhere;
+}
+#boarding-wellbeing-preview .jc-list li strong { color: var(--bw-ink); font-size: 12px; font-weight: 700; }
+#boarding-wellbeing-preview .jc-list li > span { text-align: right; }
+#boarding-wellbeing-preview .jc-feed .bw-unread { font-size: 10px; }
+#boarding-wellbeing-preview .jc-grid .bw-jarvis-events { margin-top: 5px; }
+#boarding-wellbeing-preview .jc-grid .bw-jarvis-events li { border-color: #23435c; font-size: 12px; }
+
+#boarding-wellbeing-preview .jc-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 4px;
+  margin: 8px 0 4px;
+}
+#boarding-wellbeing-preview .jc-metrics > div {
+  display: grid;
+  place-items: center;
+  gap: 3px;
+  padding: 6px 2px;
+  border: 1px solid #234b66;
+  border-radius: 6px;
+  background: radial-gradient(ellipse at top, #163c56, #0a1c2e 75%);
+}
+#boarding-wellbeing-preview .jc-metrics strong { color: #99eaff; font: 750 clamp(12px, 1.45vw, 19px)/1.1 ui-monospace, monospace; }
+#boarding-wellbeing-preview .jc-metrics span { color: var(--bw-muted); font-size: 9px; text-align: center; }
+#boarding-wellbeing-preview .jc-grid .jc-shortcuts { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; }
+#boarding-wellbeing-preview .jc-grid .jc-shortcuts a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 30px;
+  padding: 4px 7px;
+  border: 1px solid #244962;
+  border-radius: 5px;
+  background: #0c2238;
+  color: #c0ebff;
+  font-size: 11px;
+}
+#boarding-wellbeing-preview .jc-grid .jc-shortcuts a:hover { border-color: #65bbdb; }
+#boarding-wellbeing-preview .jc-grid .jc-shortcuts a small { display: none; }
+#boarding-wellbeing-preview .jc-grid .jc-shortcuts a img { width: 68px; max-height: 20px; object-fit: contain; }
+
+#boarding-wellbeing-preview .jc-grid .jc-ask {
+  width: 100%;
+  justify-self: stretch;
+  border-radius: 9px;
+}
+#boarding-wellbeing-preview .jc-grid .bw-jarvis-query input { background: #071726; border-color: #2d6583; }
+#boarding-wellbeing-preview .jc-grid .bw-jarvis-orb {
+  border-color: #61d0eb;
+  color: #d3faff;
+  background: radial-gradient(circle at 40% 35%, #2d8bae, #0d3355 72%);
+  box-shadow: 0 0 14px #20d2fa45;
+}
+#boarding-wellbeing-preview .jc-shell .bw-primary-button,
+#boarding-wellbeing-preview .jc-public-form button {
+  background: linear-gradient(135deg, #9dedff, #52c6ed);
+  color: #061624;
+  border: 1px solid #a3edff;
+  font-weight: 750;
+}
+
+#boarding-wellbeing-preview .jc-public a { color: var(--bw-accent-soft); }
+#boarding-wellbeing-preview .jc-public-form { display: grid; gap: 6px; margin-top: 6px; }
+#boarding-wellbeing-preview .jc-public-form label {
+  display: grid;
+  gap: 3px;
+  color: var(--bw-muted);
+  font-size: 11px;
+}
+#boarding-wellbeing-preview .jc-public-form input,
+#boarding-wellbeing-preview .jc-public-form button {
+  min-width: 0;
+  min-height: 36px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  font: inherit;
+}
+#boarding-wellbeing-preview .jc-public-form input {
+  background: #061629;
+  border: 1px solid #3c607b;
+  color: var(--bw-ink);
+}
+#boarding-wellbeing-preview .jc-public-form button { cursor: pointer; font-weight: 800; }
+#boarding-wellbeing-preview .jc-public [role="alert"] { color: #ffcbd4; }
+#boarding-wellbeing-preview .jc-public-actions { display: flex; flex-wrap: wrap; gap: 8px 15px; }
+#boarding-wellbeing-preview .jc-shell :focus-visible { outline: 2px solid #a0edff; outline-offset: 2px; }
+
+#boarding-wellbeing-preview .jc-topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 185px), 1fr));
+  gap: 8px;
+  margin: 10px 0 4px;
+}
+#boarding-wellbeing-preview .jc-topic-grid button {
+  min-height: 62px;
+  display: grid;
+  align-content: center;
+  gap: 3px;
+  padding: 8px 10px;
+  border: 1px solid var(--bw-line);
+  border-radius: 8px;
+  background: linear-gradient(150deg, #15344e, #0a1e32);
+  color: var(--bw-ink);
+  text-align: left;
+  cursor: pointer;
+}
+#boarding-wellbeing-preview .jc-topic-grid button:hover { border-color: var(--bw-accent); }
+#boarding-wellbeing-preview .jc-topic-grid button span { color: var(--bw-muted); font-size: 12px; }
+#boarding-wellbeing-preview .jc-step-label { display: block; margin: 10px 0 3px; }
+#boarding-wellbeing-preview .jc-development-step {
+  margin: 9px 0 0;
+  padding: 9px 10px;
+  border-left: 2px solid var(--bw-line-strong);
+  background: #0a2035;
+}
+#boarding-wellbeing-preview .jc-development-step p { margin: 3px 0; }
+#boarding-wellbeing-preview .jc-budget {
+  min-width: 0;
+  margin: 9px 0 0;
+  border: 1px solid var(--bw-line);
+  border-radius: 7px;
+}
+#boarding-wellbeing-preview .jc-budget legend { padding: 0 4px; font-weight: 750; color: var(--bw-accent-soft); }
+#boarding-wellbeing-preview .jc-budget-fields { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; margin: 8px 0; }
+#boarding-wellbeing-preview .jc-budget-fields label { display: grid; gap: 4px; font-size: 12px; }
+#boarding-wellbeing-preview .jc-budget-fields input {
+  min-width: 0;
+  width: 100%;
+  padding: 6px;
+  border: 1px solid var(--bw-line-strong);
+  border-radius: 5px;
+  background: var(--bw-field);
+  color: var(--bw-ink);
+  font: inherit;
+}
+#boarding-wellbeing-preview .jc-budget-total { color: var(--bw-accent); font-weight: 750; }
+#boarding-wellbeing-preview .jc-workshop summary { cursor: pointer; color: var(--bw-ink); font-weight: 650; }
+#boarding-wellbeing-preview .jc-workshop[open] summary { color: var(--bw-accent-soft); }
+#boarding-wellbeing-preview .jc-programme-guidance { margin-top: 12px; }
+
+/* The labels and values carry the category as well as the colour. */
+#boarding-wellbeing-preview :is(.jc-schedule, .jc-feed, [data-screen="calendar"]) {
+  --bw-accent: var(--jc-calendar);
+  --bw-accent-soft: #fef3c7;
+  --bw-accent-ink: #241b0a;
+  --bw-selection: #3e3627;
+}
+#boarding-wellbeing-preview .jc-grid :is(.jc-schedule, .jc-feed) {
+  border-color: color-mix(in srgb, var(--jc-calendar) 27%, var(--bw-line));
+}
+#boarding-wellbeing-preview .jc-grid :is(.jc-schedule, .jc-feed) :is(.jc-label, .bw-jarvis-label),
+#boarding-wellbeing-preview :is(.jc-schedule, .jc-feed) .jc-list li > span,
+#boarding-wellbeing-preview :is(.jc-brief [data-next-time], .jc-overview-list [data-jarvis-next]) {
+  color: var(--jc-calendar);
+}
+#boarding-wellbeing-preview .bw-jarvis-events .bw-jarvis-event-type {
+  color: var(--jc-calendar);
+  background: color-mix(in srgb, var(--jc-calendar) 12%, transparent);
+}
+#boarding-wellbeing-preview .jc-shell [data-screen="calendar"] .bw-primary-button {
+  color: var(--bw-accent-ink);
+  background: var(--jc-calendar);
+  border-color: var(--jc-calendar);
+}
+#boarding-wellbeing-preview .bw-match-days [data-match-clash] { color: var(--jc-sanctions); }
+
+#boarding-wellbeing-preview :is(.jc-metrics, .bw-student-metrics) strong:is([data-active-house-points], [data-profile-rewards], [data-profile-house-points]),
+#boarding-wellbeing-preview :is([data-profile-reward-history], [data-house-achievements]) li strong,
+#boarding-wellbeing-preview [data-house-ranks] li strong:last-child {
+  color: var(--jc-rewards);
+}
+#boarding-wellbeing-preview :is(.jc-metrics, .bw-student-metrics) > div strong:is([data-home-sanctions], [data-profile-sanctions]),
+#boarding-wellbeing-preview [data-profile-sanction-summary],
+#boarding-wellbeing-preview [data-profile-sanction-history] li strong,
+#boarding-wellbeing-preview [data-sanction-ranks] li strong:last-child {
+  color: var(--jc-sanctions);
+}
+#boarding-wellbeing-preview :is(.jc-metrics, .bw-student-metrics) strong:is([data-home-attendance], [data-profile-attendance]),
+#boarding-wellbeing-preview [data-profile-attendance-history] li strong {
+  color: var(--jc-attendance);
+}
+#boarding-wellbeing-preview :is([data-home-subjects], [data-academic-subjects], [data-profile-academics]) li strong,
+#boarding-wellbeing-preview .jc-grid .jc-academic .bw-jarvis-label,
+#boarding-wellbeing-preview :is(.jc-overview-list [data-jarvis-task-count], .jc-overview-list [data-home-study-minutes], [data-study-minutes], [data-study-earned]) {
+  color: var(--jc-academic);
+}
+#boarding-wellbeing-preview .jc-grid .jc-progress .bw-jarvis-label,
+#boarding-wellbeing-preview [data-stone-count] { color: var(--jc-wellbeing); }
+#boarding-wellbeing-preview progress[data-stone-progress] { accent-color: var(--jc-wellbeing); }
+
+#boarding-wellbeing-preview :is(.jc-metrics, .bw-student-metrics) > div:has(:is([data-active-house-points], [data-profile-rewards], [data-profile-house-points])),
+#boarding-wellbeing-preview :is([data-profile-reward-history], [data-house-achievements]) {
+  --jc-record-colour: var(--jc-rewards);
+}
+#boarding-wellbeing-preview :is(.jc-metrics, .bw-student-metrics) > div:has(:is([data-home-sanctions], [data-profile-sanctions])),
+#boarding-wellbeing-preview [data-profile-sanction-history] {
+  --jc-record-colour: var(--jc-sanctions);
+}
+#boarding-wellbeing-preview :is(.jc-metrics, .bw-student-metrics) > div:has(:is([data-home-attendance], [data-profile-attendance])),
+#boarding-wellbeing-preview [data-profile-attendance-history] {
+  --jc-record-colour: var(--jc-attendance);
+}
+#boarding-wellbeing-preview :is(.jc-metrics, .bw-student-metrics) > div {
+  border: 1px solid color-mix(in srgb, var(--jc-record-colour) 30%, var(--bw-line));
+  background: linear-gradient(color-mix(in srgb, var(--jc-record-colour) 10%, transparent), transparent), var(--bw-surface);
+}
+#boarding-wellbeing-preview :is([data-profile-reward-history], [data-profile-sanction-history], [data-profile-attendance-history], [data-house-achievements]) li {
+  padding-inline-start: 8px;
+  border-inline-start: 2px solid color-mix(in srgb, var(--jc-record-colour) 55%, var(--bw-line));
+}
+
+@media (min-width: 900px) {
+  #boarding-wellbeing-preview .jc-grid .bw-jarvis-text-button { min-height: 28px; }
+  #boarding-wellbeing-preview .jc-grid .jc-core { min-height: 224px; }
+  #boarding-wellbeing-preview .jc-grid .jc-ask {
+    display: grid;
+    grid-template-columns: minmax(95px, .45fr) minmax(240px, 2fr) minmax(155px, .75fr);
+    grid-template-areas: "head query action" "prompts prompts more" "answer answer answer";
+    gap: 5px 10px;
+    align-items: center;
+  }
+  #boarding-wellbeing-preview .jc-ask .bw-jarvis-assistant-head { grid-area: head; }
+  #boarding-wellbeing-preview .jc-ask .bw-jarvis-query { grid-area: query; }
+  #boarding-wellbeing-preview .jc-ask > .bw-jarvis-prompts { grid-area: prompts; }
+  #boarding-wellbeing-preview .jc-ask .bw-jarvis-examples { grid-area: more; }
+  #boarding-wellbeing-preview .jc-ask .bw-jarvis-answer { grid-area: answer; min-height: auto; }
+  #boarding-wellbeing-preview .jc-ask .bw-action-row { grid-area: action; justify-content: flex-end; }
+  #boarding-wellbeing-preview .jc-ask [data-jarvis-sources],
+  #boarding-wellbeing-preview .jc-ask .bw-jarvis-query label > span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  #boarding-wellbeing-preview .jc-ask .bw-jarvis-prompts button { min-height: 27px; }
+  #boarding-wellbeing-preview .jc-shell { grid-template-columns: 174px minmax(0, 1fr); align-items: start; }
+  #boarding-wellbeing-preview .jc-shell .jc-side {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    position: sticky;
+    top: 0;
+    min-height: 100svh;
+    max-height: 100svh;
+    padding: 12px;
+    border-width: 0 1px 0 0;
+  }
+  #boarding-wellbeing-preview .jc-private .bw-mobile-actions { display: none; }
+  #boarding-wellbeing-preview .jc-private .bw-menu {
+    display: grid;
+    align-content: start;
+    gap: 4px;
+    padding: 0;
+    border: 0;
+    background: none;
+  }
+  #boarding-wellbeing-preview .jc-private .bw-menu .bw-menu-item {
+    width: 100%;
+    min-height: 36px;
+    justify-content: flex-start;
+    padding: 5px 7px;
+    color: var(--bw-ink);
+    border-radius: 6px;
+    text-align: left;
+    white-space: normal;
+  }
+  #boarding-wellbeing-preview .jc-private .bw-menu .bw-menu-item[aria-current="page"] {
+    border: 1px solid #2b6686;
+    background: #10334b;
+    color: #c0f4ff;
+    box-shadow: none;
+  }
+}
+
+@media (max-width: 1040px) {
+  #boarding-wellbeing-preview .jc-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "top top" "core core" "brief feed" "schedule schedule" "academic record" "progress shortcuts" "ask ask";
+  }
+}
+@media (max-width: 899px) {
+  #boarding-wellbeing-preview .jc-side-status { display: none; }
+  #boarding-wellbeing-preview .jc-private .jc-side-status:has(form) { display: block; grid-column: 1 / -1; padding: 0; border: 0; background: none; }
+  #boarding-wellbeing-preview .jc-private .jc-side-status > :not(form) { display: none; }
+  #boarding-wellbeing-preview .jc-public .jc-side { display: grid; gap: 7px; }
+  #boarding-wellbeing-preview .jc-public-nav { display: flex; overflow-x: auto; }
+  #boarding-wellbeing-preview .jc-public-nav a { white-space: nowrap; padding: 6px 7px; font-size: 12px; }
+}
+@media (max-width: 600px) {
+  #boarding-wellbeing-preview .jc-main,
+  #boarding-wellbeing-preview .jc-private[data-hub="true"] .jc-main { padding: 8px; }
+  #boarding-wellbeing-preview .jc-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "top" "brief" "ask" "core" "schedule" "feed" "academic" "record" "progress" "shortcuts";
+  }
+  #boarding-wellbeing-preview .jc-public .jc-grid {
+    grid-template-areas: "top" "core" "feed" "academic" "schedule" "brief" "record" "progress" "shortcuts";
+  }
+  #boarding-wellbeing-preview .jc-overview-list { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  #boarding-wellbeing-preview .jc-top .bw-command-clock { flex-direction: row; gap: 5px; flex-wrap: wrap; }
+  #boarding-wellbeing-preview .jc-top time strong { font-size: 16px; }
+  #boarding-wellbeing-preview .jc-grid .jc-core { min-height: 205px; }
+  #boarding-wellbeing-preview .jc-public-form input { font-size: 16px; }
+  #boarding-wellbeing-preview .jc-budget-fields { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: reduce) {
+  #boarding-wellbeing-preview .jc-grid .jc-core::before { transform: none; transition: none; }
+}

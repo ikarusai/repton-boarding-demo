@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" fill="none">
+  <defs>
+    <radialGradient id="a"><stop stop-color="#167eb6" stop-opacity=".34"/><stop offset="1" stop-color="#041124" stop-opacity="0"/></radialGradient>
+    <radialGradient id="b" cx=".37" cy=".30" r=".73"><stop stop-color="#0e3b64"/><stop offset=".73" stop-color="#081b35"/><stop offset="1" stop-color="#11618c"/></radialGradient>
+    <linearGradient id="c" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#9ef5ff"/><stop offset=".42" stop-color="#24628c"/><stop offset=".85" stop-color="#4bdcf8"/></linearGradient>
+    <radialGradient id="d"><stop stop-color="#e4fbff"/><stop offset=".16" stop-color="#98ecff"/><stop offset=".45" stop-color="#43d2ff" stop-opacity=".4"/><stop offset="1" stop-color="#43d2ff" stop-opacity="0"/></radialGradient>
+    <clipPath id="e"><circle cx="360" cy="159" r="128"/></clipPath>
+    <pattern id="f" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".8" fill="#71bbeb" fill-opacity=".27"/></pattern>
+    <pattern id="g" width="32" height="28" patternUnits="userSpaceOnUse"><path d="M0 0h32L16 28ZM0 28h32L16 0Z" stroke="#5bb4e1" stroke-opacity=".32" stroke-width=".65"/></pattern>
+  </defs>
+  <path d="M0 0h720v340H0z" fill="url(#f)"/>
+  <ellipse cx="360" cy="158" rx="340" ry="170" fill="url(#a)"/>
+  <g stroke="#34749e" stroke-opacity=".39" stroke-width=".7">
+    <ellipse cx="360" cy="159" rx="340" ry="117" transform="rotate(-6 360 159)"/>
+    <ellipse cx="360" cy="159" rx="294" ry="108" transform="rotate(11 360 159)"/>
+    <ellipse cx="360" cy="159" rx="262" ry="81" transform="rotate(-14 360 159)"/>
+  </g>
+  <g stroke="#3eb5e7" stroke-opacity=".38" stroke-width=".7">
+    <ellipse cx="360" cy="287" rx="154" ry="22"/><ellipse cx="360" cy="287" rx="143" ry="20"/>
+    <ellipse cx="360" cy="287" rx="131" ry="18"/><ellipse cx="360" cy="287" rx="120" ry="16"/>
+    <ellipse cx="360" cy="287" rx="106" ry="14"/><ellipse cx="360" cy="287" rx="91" ry="12"/>
+    <ellipse cx="360" cy="287" rx="76" ry="10"/><ellipse cx="360" cy="287" rx="60" ry="8"/>
+    <path d="m210 286 300 2m-287-12 274 22m-274 0 274-22m-241-4 208 29m-208 0 208-29m-170-4 132 36m-132 0 132-36"/>
+  </g>
+  <circle cx="360" cy="159" r="137" stroke="#2ba9dc" stroke-opacity=".18" stroke-width="1"/>
+  <circle cx="360" cy="159" r="128" fill="url(#b)" stroke="url(#c)" stroke-width="1.6"/>
+  <g clip-path="url(#e)">
+    <path d="M232 31h256v256H232z" fill="url(#g)" opacity=".75"/>
+    <g stroke="url(#c)" stroke-opacity=".53" stroke-width=".85" transform="rotate(-16 360 159)">
+      <ellipse cx="360" cy="159" rx="20" ry="128"/><ellipse cx="360" cy="159" rx="48" ry="128"/>
+      <ellipse cx="360" cy="159" rx="80" ry="128"/><ellipse cx="360" cy="159" rx="108" ry="128"/>
+      <ellipse cx="360" cy="88" rx="106" ry="14"/><ellipse cx="360" cy="123" rx="123" ry="23"/>
+      <ellipse cx="360" cy="159" rx="128" ry="28"/><ellipse cx="360" cy="195" rx="122" ry="23"/>
+      <ellipse cx="360" cy="230" rx="105" ry="14"/>
+    </g>
+    <path d="M252 116 302 54l95-11 77 60-10 113-63 58-106-30-43-128Zm0 0 108 43 114-56m-172-49 58 105 37-116m-102 201 65-85 41 115m63-58-104-57" stroke="#8ddcff" stroke-opacity=".28"/>
+  </g>
+  <path d="M128 162c-42 13-61 26-58 37 8 29 155 28 328-4 173-31 306-80 298-109-3-11-30-16-70-16m-485 175c-2 18 25 24 78 20 69-5 179-28 282-69 100-40 171-87 173-109 2-16-29-19-80-13" stroke="#60bcec" stroke-opacity=".6" stroke-width="1"/>
+  <path d="M104 113c30-22 151-22 289 4 152 30 269 77 262 104-3 12-33 16-80 13" stroke="#589fe1" stroke-opacity=".49"/>
+  <g fill="url(#d)">
+    <circle cx="131" cy="195" r="15"/><circle cx="221" cy="248" r="14"/><circle cx="274" cy="63" r="16"/>
+    <circle cx="477" cy="89" r="13"/><circle cx="609" cy="172" r="17"/><circle cx="529" cy="122" r="10"/>
+  </g>
+  <g fill="#a0eafa" opacity=".57"><circle cx="48" cy="56" r="1"/><circle cx="96" cy="257" r="1"/><circle cx="173" cy="73" r="1.3"/>
+    <circle cx="217" cy="149" r="1.1"/><circle cx="507" cy="41" r="1"/><circle cx="579" cy="89" r="1.5"/>
+    <circle cx="650" cy="61" r="1"/><circle cx="686" cy="231" r="1.2"/><circle cx="507" cy="268" r="1.2"/></g>
+</svg>

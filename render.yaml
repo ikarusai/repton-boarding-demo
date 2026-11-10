@@ -1,0 +1,14 @@
+# Fictional demo only. Does not deploy the school Worker or school credentials.
+services:
+  - type: web
+    name: repton-boarding-demo
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm ci && npm run build && node --test *.test.mjs
+    startCommand: node hosted-demo.mjs
+    healthCheckPath: /healthz
+    autoDeploy: false
+    envVars:
+      - key: NODE_VERSION
+        value: 22.22.0

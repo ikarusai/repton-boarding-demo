@@ -1,0 +1,35 @@
+.jarvis-orb {
+  position: relative;
+  display: block;
+  width: min(100%, 320px);
+  aspect-ratio: 1;
+  flex: none;
+  isolation: isolate;
+  pointer-events: none;
+}
+.jarvis-orb canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1;
+}
+.jarvis-orb::before {
+  content: "";
+  position: absolute;
+  inset: 16%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #a3805420, transparent 68%);
+  z-index: -1;
+}
+.jarvis-orb--small { width: 72px; }
+#boarding-wellbeing-preview .jx-orbit {
+  border-color: #95816c;
+  color: #e5d6bd;
+  background: radial-gradient(circle at 30% 30%, #deceb333, transparent 60%);
+}
+#boarding-wellbeing-preview .jx-orbit::before,
+#boarding-wellbeing-preview .jx-orbit::after { border-color: #e2d3ba; }
+#boarding-wellbeing-preview [data-busy="true"] .jx-orbit { box-shadow: 0 0 16px #c5a77c30; }
+@media (prefers-reduced-motion: reduce) {
+  .jarvis-orb { animation: none !important; transition: none !important; }
+}

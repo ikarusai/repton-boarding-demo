@@ -1,0 +1,14 @@
+/page.generated.mjs
+/.dev.vars*
+/.wrangler/
+/node_modules/
+/.env*
+!/.env.example
+/.demo-state.json
+/.demo-state.json.lock
+/.demo-state.json.*.tmp
+/output/
+/test-results/
+/tmp/
+/.tools/
+/.shared-demo*

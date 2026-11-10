@@ -1,0 +1,323 @@
+/* A quiet, warm workspace. Shared by the public entry and every private screen. */
+:root { --jl-font: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; --jl-display: "Fraunces", Georgia, serif; }
+body.jc-body { background:#0b0b0a; color:#f2f0e9; -webkit-font-smoothing:antialiased; }
+#boarding-wellbeing-preview .jc-shell {
+  --bw-surface:#0b0b0a; --bw-header-bg:#0e0e0d; --bw-card:#141413; --bw-ink:#f2f0e9;
+  --bw-muted:#a5a49f; --bw-line:#2c2c29; --bw-line-strong:#56534c; --bw-glass-edge:#33322e;
+  --bw-accent:#e7ddca; --bw-accent-soft:#e7ddca; --bw-accent-ink:#171611; --bw-accent-hover:#fffdf5;
+  --bw-field:#10100f; --bw-icon-bg:#24231f; --bw-selection:#39362e; --bw-glass:#151514; --bw-panel:#151514;
+  --bw-alert:#e8b9aa; --bw-alert-line:#5a3d34; --bw-alert-surface:#241c18;
+  --jc-calendar:#cbbb9f; --jc-rewards:#b1c3aa; --jc-sanctions:#d5a69a; --jc-attendance:#b5c1c7;
+  --jc-academic:#cec6b6; --jc-wellbeing:#bec7ad;
+  display:block; background:#0b0b0a; font:14px/1.6 var(--jl-font); color:var(--bw-ink); min-height:100svh;
+}
+#boarding-wellbeing-preview .jc-shell [data-screen] { --bw-accent:#e7ddca; --bw-accent-soft:#e7ddca; --bw-accent-ink:#171611; --bw-selection:#39362e; }
+#boarding-wellbeing-preview .jc-shell.jc-private :is(h1,h2),
+#boarding-wellbeing-preview .jl-public :is(h1,h2) { font-family:var(--jl-display); font-weight:450; letter-spacing:-.035em; text-transform:none; color:var(--bw-ink); line-height:1.18; text-shadow:none; }
+#boarding-wellbeing-preview .jc-shell.jc-private h1 { font-size:clamp(36px,4.3vw,54px); margin:10px 0 20px; }
+#boarding-wellbeing-preview .jc-shell.jc-private h2 { font-size:28px; }
+#boarding-wellbeing-preview .jc-shell h3 { font-family:var(--jl-font); font-size:16px; font-weight:550; letter-spacing:-.02em; }
+#boarding-wellbeing-preview .jc-shell :is(button,input,textarea,select) { font-family:var(--jl-font); }
+#boarding-wellbeing-preview .jc-shell :is(button,a) { -webkit-tap-highlight-color:transparent; }
+#boarding-wellbeing-preview .jc-shell button { cursor:pointer; }
+#boarding-wellbeing-preview .jc-shell button:disabled { cursor:default; opacity:.5; }
+#boarding-wellbeing-preview .jc-shell :is(a,.bw-link,.bw-jarvis-text-button) { color:#ded7c8; text-decoration-thickness:1px; text-underline-offset:4px; font-weight:450; }
+#boarding-wellbeing-preview .jc-shell :is(a,.bw-link,.bw-jarvis-text-button):hover { color:#fffdf4; }
+#boarding-wellbeing-preview .jc-shell :is(.bw-primary-button,.jc-public-form button),
+#boarding-wellbeing-preview .jc-shell [data-screen="calendar"] .bw-primary-button {
+  background:#eee9de; color:#191814; border:1px solid #eee9de; border-radius:9px; box-shadow:none;
+  font:550 13px/1.4 var(--jl-font); min-height:44px; padding:11px 17px; transition:background .18s,transform .18s;
+}
+#boarding-wellbeing-preview .jc-shell .bw-primary-button:hover { background:#fffdf5; transform:translateY(-1px); }
+#boarding-wellbeing-preview .jc-shell :is(.bw-secondary,.bw-jarvis-prompts button) { background:transparent; border:1px solid #383732; border-radius:9px; box-shadow:none; color:#d7d4cb; min-height:40px; font-size:12px; font-weight:450; }
+#boarding-wellbeing-preview .jc-shell :is(.bw-secondary,.bw-jarvis-prompts button):hover { background:#23221e; border-color:#605b50; }
+#boarding-wellbeing-preview .jc-shell :is(.bw-jarvis-text-button,.bw-link) { font-size:12px; }
+#boarding-wellbeing-preview .jc-shell :is(input,textarea,select),
+#boarding-wellbeing-preview .jc-shell .jx-goals :is(input,textarea,select),
+#boarding-wellbeing-preview .jc-shell .jc-grid .bw-jarvis-query input {
+  background:#10100f; border:1px solid #3b3a34; color:#f2f0e9; border-radius:8px; min-height:44px;
+  padding:10px 12px; box-shadow:none; font-size:14px; font-weight:400; accent-color:#d4c5ac; min-width:0;
+}
+#boarding-wellbeing-preview .jc-shell :is(input,textarea)::placeholder { color:#8f8a7f; font-weight:400; }
+#boarding-wellbeing-preview .jc-shell input[type="checkbox"] { min-height:16px; width:16px; height:16px; }
+#boarding-wellbeing-preview .jc-shell label { color:#c0beb5; font-size:12px; font-weight:450; }
+#boarding-wellbeing-preview .jc-shell :focus-visible { outline:2px solid #cabb9f; outline-offset:4px; }
+#boarding-wellbeing-preview .jc-shell :is(.jc-label,.bw-jarvis-label,.bw-kicker) { font:500 10px/1.6 var(--jl-font); letter-spacing:.11em; color:#b9ad97; text-transform:uppercase; }
+#boarding-wellbeing-preview .jc-shell :is(.bw-jarvis-topline,.bw-demo,.jx-meta) { color:#a5a49f; }
+#boarding-wellbeing-preview .jc-main { max-width:1180px; width:100%; margin:auto; padding:26px 28px 64px; }
+#boarding-wellbeing-preview .jc-private[data-hub="true"] .jc-main { max-width:1180px; padding:26px 28px 64px; }
+
+/* One familiar navigation line, with a secondary utility row. */
+#boarding-wellbeing-preview .jc-shell.jc-private .jc-side {
+  position:relative; top:auto; min-height:0; max-height:none; height:auto; display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto; grid-template-areas:"brand nav actions" "status status status";
+  align-items:center; gap:0 28px; padding:17px max(28px,calc((100vw - 1124px)/2)) 0;
+  border:0; border-bottom:1px solid #292824; background:#0e0e0d; box-shadow:none;
+}
+#boarding-wellbeing-preview .jc-private .bw-brand { gap:10px; }
+#boarding-wellbeing-preview .jc-private .bw-brand strong { font:550 23px/1.1 var(--jl-display); text-transform:none; letter-spacing:-.06em; }
+#boarding-wellbeing-preview .jc-private .bw-brand small { font:400 9px/1.5 var(--jl-font); color:#8b8a82; text-transform:none; letter-spacing:.04em; }
+#boarding-wellbeing-preview .jc-private .bw-mark { width:30px; height:36px; flex-basis:30px; border:0; border-radius:0; background:none; overflow:visible; }
+#boarding-wellbeing-preview .jc-private .bw-mark::before { content:"j"; display:block; text-align:center; font:500 34px/1 var(--jl-display); background:none; filter:none; color:#d6c7ac; }
+#boarding-wellbeing-preview .jc-private .bw-menu { display:flex; flex-wrap:nowrap; gap:5px; border:0; background:none; padding:0; justify-self:center; }
+#boarding-wellbeing-preview .jc-private .bw-menu .bw-menu-item { width:auto; min-height:40px; padding:8px 10px; font:450 12px/1.5 var(--jl-font); color:#9d9c95; border:1px solid transparent; border-radius:7px; white-space:nowrap; }
+#boarding-wellbeing-preview .jc-private .bw-menu .bw-menu-item[aria-current="page"] { color:#f2ede2; background:#24231f; border-color:#33312b; box-shadow:none; }
+#boarding-wellbeing-preview .jc-private .bw-menu .bw-menu-item:hover { color:#eee9df; background:#1c1c19; }
+#boarding-wellbeing-preview .jc-private .bw-menu :is(svg,i) { display:none; }
+#boarding-wellbeing-preview .jc-private .bw-mobile-actions { display:flex; }
+#boarding-wellbeing-preview .jc-private .bw-mobile-actions .bw-mobile-help { font-size:11px; font-weight:450; color:#dbb6a9; background:none; border-color:#45382f; min-height:36px; padding:7px 10px; }
+#boarding-wellbeing-preview .jc-private .jc-side-status,
+#boarding-wellbeing-preview .jc-private .jc-side-status:has(form) {
+  grid-area:status; display:flex; align-items:center; flex-wrap:wrap; justify-content:flex-start; gap:18px;
+  padding:12px 0 10px; margin:13px 0 0; border:0; border-top:1px solid #23231f; border-radius:0; background:none;
+}
+#boarding-wellbeing-preview .jc-private .jc-side-status > .jc-label,
+#boarding-wellbeing-preview .jc-private .jc-side-status > [data-page="now"] { display:none; }
+#boarding-wellbeing-preview .jc-private .jc-side-status > [data-page="talk"] { display:inline-flex; margin-left:auto; }
+#boarding-wellbeing-preview .jc-private .jc-side-status > [data-open-commands] { display:inline-flex; align-items:center; gap:14px; color:#aaa79c; min-height:40px; font-size:11px; }
+#boarding-wellbeing-preview .jc-private .jc-side-status > form { margin:0; }
+#boarding-wellbeing-preview .jc-private .jc-side-status > form button { min-height:40px; padding:9px 6px; font-size:11px; color:#b3afa3; }
+#boarding-wellbeing-preview .jc-private .jc-side-status > [data-connection] { display:flex; margin:0; font-size:11px; color:#a6a298; }
+#boarding-wellbeing-preview .jx-orbit { width:16px; height:16px; border-color:#766b58; }
+#boarding-wellbeing-preview .jx-orbit::before,#boarding-wellbeing-preview .jx-orbit::after { border-color:#bbab8e; }
+#boarding-wellbeing-preview [data-busy="true"] .jx-orbit { box-shadow:0 0 14px #c7a86b33; }
+
+/* The overview starts with a generous greeting and a living, quiet orb. */
+#boarding-wellbeing-preview .jc-private .jc-grid { display:grid; grid-template-columns:minmax(0,1.35fr) minmax(0,1fr); grid-template-areas:"top top" "core core" "ask brief" "schedule feed" "academic record" "progress shortcuts"; gap:20px; }
+#boarding-wellbeing-preview .jc-grid .jc-top { min-height:28px; padding:0; border:0; color:#8e8c82; font-size:11px; }
+#boarding-wellbeing-preview .jc-top > div strong { font-weight:450; }
+#boarding-wellbeing-preview .jc-top .bw-command-led { background:#b7a17b; box-shadow:none; width:4px; height:4px; }
+#boarding-wellbeing-preview .jc-top .bw-command-clock { display:flex; flex-direction:row; gap:12px; font:400 11px/1.5 var(--jl-font); color:#88867d; }
+#boarding-wellbeing-preview .jc-top time strong { color:#c8c0ae; font-size:12px; font-weight:500; letter-spacing:0; }
+#boarding-wellbeing-preview .jc-top .bw-command-badge { color:#88867d; background:none; border:0; text-transform:none; font:400 10px/1.4 var(--jl-font); padding:0; }
+#boarding-wellbeing-preview .jc-grid .jc-core { border:0; border-radius:0; background:transparent; box-shadow:none; min-height:350px; padding:12px 0 38px; margin-bottom:4px; border-bottom:1px solid #2a2822; overflow:visible; }
+#boarding-wellbeing-preview .jc-grid .jc-core::before,#boarding-wellbeing-preview .jc-grid .jc-core::after { display:none; }
+#boarding-wellbeing-preview .jc-grid .jc-core .bw-core-assembly { display:grid; grid-template-columns:minmax(0,1.1fr) minmax(260px,.9fr); width:100%; place-items:center; position:relative; transform:none; }
+#boarding-wellbeing-preview .jc-grid .jc-globe-copy { display:block; text-align:left; justify-self:start; justify-items:start; padding:0; text-shadow:none; }
+#boarding-wellbeing-preview .jc-grid .jc-globe-copy h1 { font:450 clamp(44px,5.5vw,72px)/1.06 var(--jl-display); letter-spacing:-.055em; text-transform:none; color:#f3f0e7; padding:0; margin:20px 0 18px; text-shadow:none; }
+#boarding-wellbeing-preview .jc-grid .jc-globe-copy h1 em { font-style:normal; font-weight:450; color:#cbbb9f; }
+#boarding-wellbeing-preview .jc-grid .jc-core-caption { margin:0; color:#9b9382; font:500 10px/1.5 var(--jl-font); letter-spacing:.12em; }
+#boarding-wellbeing-preview .jc-grid .jc-core .jl-hero-note { font-size:14px; line-height:1.7; color:#9f9c91; margin:0; }
+#boarding-wellbeing-preview .jl-hero-actions { display:flex; gap:12px; flex-wrap:wrap; margin-top:24px; }
+#boarding-wellbeing-preview .jl-hero-actions .bw-primary-button { min-width:155px; display:flex; justify-content:space-between; gap:20px; }
+#boarding-wellbeing-preview .jl-home-orb { width:350px; height:350px; max-width:100%; display:block; }
+#boarding-wellbeing-preview .jc-grid .bw-core-marker { position:absolute; bottom:16px; left:auto; right:9%; font:400 11px/1.4 var(--jl-font); color:#938a7c; letter-spacing:.08em; text-transform:none; }
+#boarding-wellbeing-preview .bw-core-marker > span { display:none; }
+#boarding-wellbeing-preview .jc-shell :is(.bw-jarvis-panel,.jc-panel),
+#boarding-wellbeing-preview .jc-grid .jc-panel { padding:23px 24px; border:1px solid #2e2c26; background:#141413; border-radius:13px; box-shadow:none; }
+#boarding-wellbeing-preview .jc-grid .jc-core { padding:12px 0 38px; border:0; border-bottom:1px solid #2a2822; background:none; border-radius:0; }
+#boarding-wellbeing-preview .jc-grid .jc-panel h2 { font:450 27px/1.22 var(--jl-display); letter-spacing:-.035em; margin:5px 0 12px; }
+#boarding-wellbeing-preview .jc-grid .jc-panel p { color:#a19e93; font-size:12px; line-height:1.7; margin:8px 0; }
+#boarding-wellbeing-preview .jc-grid .jc-panel .bw-jarvis-label { color:#aca18a; }
+#boarding-wellbeing-preview .jc-grid .jc-ask { display:block; }
+#boarding-wellbeing-preview .jc-ask .bw-jarvis-assistant-head { margin:0 0 18px; }
+#boarding-wellbeing-preview .jc-ask .bw-jarvis-assistant-head strong { font:450 28px/1.3 var(--jl-display); letter-spacing:-.035em; }
+#boarding-wellbeing-preview .jc-grid .bw-jarvis-orb { width:32px; height:32px; border:1px solid #6d5c41; color:#d8c7a4; background:radial-gradient(circle at 35% 30%,#68563d,#231f18 72%); box-shadow:0 0 16px #d3b27516; }
+#boarding-wellbeing-preview .jc-ask .bw-jarvis-query { margin:0 0 15px; }
+#boarding-wellbeing-preview .jc-ask .bw-jarvis-query input { font-size:13px; }
+#boarding-wellbeing-preview .jc-ask .bw-jarvis-prompts { gap:7px; }
+#boarding-wellbeing-preview .jc-ask .bw-jarvis-prompts button { font-size:12px; min-height:40px; padding:7px 10px; border-color:#37342c; }
+#boarding-wellbeing-preview .jc-ask .bw-jarvis-examples { font-size:11px; color:#88867b; margin:12px 0; }
+#boarding-wellbeing-preview .jc-ask .bw-action-row { justify-content:flex-start; gap:18px; }
+#boarding-wellbeing-preview .jc-overview-list { grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin-top:24px; }
+#boarding-wellbeing-preview .jc-overview-list > div { display:flex; flex-direction:column; padding:0; background:none; border:0; border-right:1px solid #363228; border-radius:0; font-size:11px; gap:6px; }
+#boarding-wellbeing-preview .jc-overview-list > div:last-child { border:0; }
+#boarding-wellbeing-preview .jc-overview-list strong { font:500 14px/1.4 var(--jl-font); color:#d7cbb4; }
+#boarding-wellbeing-preview .jc-grid .bw-next-event { font-size:16px; font-weight:500; }
+#boarding-wellbeing-preview .jc-list li { padding:11px 0; color:#a09c90; border-color:#302d25; font-size:11px; }
+#boarding-wellbeing-preview .jc-list li strong { font-size:12px; font-weight:450; }
+#boarding-wellbeing-preview .jc-grid .bw-jarvis-events li { padding:11px 0; border-color:#302d25; font-size:12px; }
+#boarding-wellbeing-preview .bw-jarvis-events .bw-jarvis-event-type { background:#25231e; color:#c3b9a5; font-size:11px; }
+#boarding-wellbeing-preview .jc-metrics { gap:12px; margin:17px 0; }
+#boarding-wellbeing-preview .jc-metrics > div { background:none; border:0; border-right:1px solid #363228; border-radius:0; padding:8px; }
+#boarding-wellbeing-preview .jc-metrics > div:last-child { border:0; }
+#boarding-wellbeing-preview .jc-metrics strong { font:450 27px/1.2 var(--jl-display); }
+#boarding-wellbeing-preview .jc-metrics span { font-size:10px; }
+#boarding-wellbeing-preview .jc-grid .jc-shortcuts { gap:6px; }
+#boarding-wellbeing-preview .jc-grid .jc-shortcuts a { min-height:40px; padding:9px 0; border:0; border-bottom:1px solid #333027; border-radius:0; background:none; color:#bbb4a4; font-weight:450; font-size:12px; }
+#boarding-wellbeing-preview .jc-grid .jc-shortcuts a strong { font-weight:450; }
+
+/* All working screens share the same type, fields and quieter surfaces. */
+#boarding-wellbeing-preview .bw-back { color:#8f897a; font-size:11px; margin-bottom:25px; }
+#boarding-wellbeing-preview .bw-jarvis-topline { font-size:10px; font-weight:400; text-transform:none; letter-spacing:.03em; margin:0 0 12px; }
+#boarding-wellbeing-preview .jc-shell :is(.bw-jarvis-badge,.bw-unread,.jx-pill) { font:450 10px/1.5 var(--jl-font); padding:4px 10px; color:#b5ac98; background:#24221c; border:1px solid #373329; border-radius:20px; text-transform:none; }
+#boarding-wellbeing-preview .jc-shell .bw-jarvis-badge::before { background:#bba37b; box-shadow:none; }
+#boarding-wellbeing-preview .jx-goals-layout { gap:24px; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); margin:24px 0; }
+#boarding-wellbeing-preview .jx-goals :is(p,small) { color:#aaa69a; }
+#boarding-wellbeing-preview .jx-goal-list { gap:20px; }
+#boarding-wellbeing-preview .jx-goal-card { background:#151514; border-color:#343128; border-radius:13px; padding:25px; }
+#boarding-wellbeing-preview .jc-shell .jx-goal-heading h3 { font:450 25px/1.3 var(--jl-display); letter-spacing:-.03em; }
+#boarding-wellbeing-preview .jx-goal-card progress { accent-color:#bca886; height:4px; }
+#boarding-wellbeing-preview .jx-goal-card :is(.jx-milestones>li,.jx-next-steps li) { border-color:#343027; }
+#boarding-wellbeing-preview .jx-goal-card .jx-evidence { color:#b9c6a8; }
+#boarding-wellbeing-preview [data-goal-steps] { display:grid; gap:15px; }
+#boarding-wellbeing-preview .jx-goal-step { min-width:0; display:grid; gap:12px; margin:0; padding:16px; border:1px solid #39342a; border-radius:9px; background:#10100e; }
+#boarding-wellbeing-preview .jx-goal-step legend { font-size:11px; color:#afa28a; padding:0 6px; }
+#boarding-wellbeing-preview .jx-goal-step .jx-remove-step { font-size:10px; min-height:30px; padding:4px 8px; justify-self:end; }
+#boarding-wellbeing-preview .jx-skeleton { background:#151411; }
+#boarding-wellbeing-preview .jx-skeleton span { background:linear-gradient(90deg,#27241e,#494235,#27241e); background-size:200% 100%; }
+#boarding-wellbeing-preview .jx-next-steps li,#boarding-wellbeing-preview .jx-agenda-list li { border-color:#333027; }
+#boarding-wellbeing-preview .jx-agenda { border-color:#383228; margin-top:32px; padding-top:28px; }
+#boarding-wellbeing-preview .jx-agenda-link { color:#e3ddce; }
+#boarding-wellbeing-preview .jx-agenda-list { max-height:520px; }
+#boarding-wellbeing-preview .jc-shell .bw-week-grid { border-color:#343027; }
+#boarding-wellbeing-preview .jc-shell :is(.bw-week-day,.bw-calendar-date,.bw-calendar-month-card) { background:#10100e; border-color:#322e25; color:#c5bcaa; }
+#boarding-wellbeing-preview .jc-shell :is(.bw-week-day,.bw-calendar-date)[data-today="true"] { background:#222018; border-color:#7c6c4e; }
+#boarding-wellbeing-preview .jc-shell .bw-calendar-views button[aria-pressed="true"] { color:#181611; background:#d5c8ad; border-color:#d5c8ad; }
+#boarding-wellbeing-preview .jc-shell .bw-calendar-count { color:#b3aa97; }
+#boarding-wellbeing-preview .jc-shell :is(.bw-expand,.bw-choice,.bw-focus,.bw-feature,.bw-practice,.bw-study-console,.bw-study-plot,.bw-collection-slot) { background:#151411; border-color:#353026; color:#e4dece; box-shadow:none; }
+#boarding-wellbeing-preview .jc-shell :is(.bw-choice:hover,.bw-study-plot:hover,.bw-collection-slot:hover) { background:#232018; }
+#boarding-wellbeing-preview .jc-shell .jc-topic-grid button { background:#151411; border-color:#3c3528; padding:18px; }
+#boarding-wellbeing-preview .jc-shell .jc-topic-grid button strong { font-weight:500; }
+#boarding-wellbeing-preview .jc-shell :is(.jc-development-step,.bw-reset-tool,.bw-notice,.bw-timer) { background:#1c1a15; border-color:#534734; }
+#boarding-wellbeing-preview .jc-shell .bw-study-clock-value { font-family:var(--jl-display); font-weight:450; color:#ede3cd; }
+#boarding-wellbeing-preview .jc-shell .bw-study-presets button[aria-pressed="true"] { background:#d8c8a8; color:#19150e; }
+#boarding-wellbeing-preview .jc-shell .jx-command-dialog { background:#151411; border-color:#554a38; border-radius:16px; color:#eee5d3; }
+#boarding-wellbeing-preview .jc-shell .jx-command-dialog::backdrop { background:#080807c7; }
+#boarding-wellbeing-preview .bw-footer { border-color:#2f2b23; color:#8c8371; padding-top:24px; }
+.jc-demo-banner { background:#191713; color:#a89c86; border-bottom:1px solid #302a20; font:400 10px/1.6 var(--jl-font); padding:9px 28px; text-align:center; }
+.jc-demo-actions { justify-content:center; }
+.jc-demo-account button { background:#2a251c; color:#ded1b8; border:1px solid #544631; min-height:32px; font:500 11px var(--jl-font); }
+
+/* Public entry: explanation and access are adjacent, support stays one scroll away. */
+#boarding-wellbeing-preview .jl-public { min-height:100svh; }
+#boarding-wellbeing-preview .jl-public-header { display:flex; align-items:center; gap:32px; padding:20px max(28px,calc((100vw - 1124px)/2)); border-bottom:1px solid #282720; }
+#boarding-wellbeing-preview .jl-public-brand { color:#ede9de; text-decoration:none; font:500 27px/1.1 var(--jl-display); letter-spacing:-.04em; white-space:nowrap; }
+#boarding-wellbeing-preview .jl-public-brand small { display:block; font:400 9px/1.5 var(--jl-font); letter-spacing:.04em; color:#8d887c; margin-top:4px; }
+#boarding-wellbeing-preview .jl-public-brand { display:grid; grid-template-columns:auto 1fr; gap:0 10px; align-items:center; }
+#boarding-wellbeing-preview .jl-public-brand strong { font-weight:500; }
+#boarding-wellbeing-preview .jl-public-brand > span:last-child { grid-column:2; font:400 9px/1.5 var(--jl-font); letter-spacing:.04em; color:#8d887c; margin-top:4px; }
+#boarding-wellbeing-preview .jl-brand-dot { grid-row:1 / 3; width:12px; height:12px; border:1px solid #b9a888; border-radius:50%; box-shadow:inset 0 0 6px #b9a88855; }
+#boarding-wellbeing-preview .jl-public-nav { display:flex; gap:24px; margin-left:auto; align-items:center; }
+#boarding-wellbeing-preview .jl-public-nav a { font-size:12px; color:#a19b8f; text-decoration:none; }
+#boarding-wellbeing-preview .jl-public-clock { display:grid; gap:2px; color:#bfb29a; font-size:12px; text-align:right; min-width:115px; }
+#boarding-wellbeing-preview .jl-public-clock span { font-size:9px; color:#827a6b; }
+#boarding-wellbeing-preview .jl-public-main { max-width:1180px; margin:auto; padding:55px 28px 30px; }
+#boarding-wellbeing-preview .jl-public-hero { display:grid; grid-template-columns:minmax(0,1.3fr) minmax(280px,.8fr); gap:100px; align-items:center; padding:0 0 72px; }
+#boarding-wellbeing-preview .jl-public-intro { padding:0; }
+#boarding-wellbeing-preview .jl-public-intro .jarvis-orb { width:250px; height:220px; margin:-20px auto 0; display:block; }
+#boarding-wellbeing-preview .jl-public h1 { font-size:clamp(42px,5vw,64px); margin:15px 0 22px; max-width:600px; }
+#boarding-wellbeing-preview .jl-public-intro > p { font-size:15px; line-height:1.8; color:#aaa396; max-width:450px; }
+#boarding-wellbeing-preview .jl-public .jl-eyebrow { font:500 10px/1.5 var(--jl-font); letter-spacing:.08em; text-transform:uppercase; color:#b2a58e; margin:0 0 10px; }
+#boarding-wellbeing-preview .jl-public-signin { padding:30px; border:1px solid #3a3327; border-radius:15px; background:#16140f; }
+#boarding-wellbeing-preview .jl-public-signin h2 { font-size:33px; margin:10px 0 15px; }
+#boarding-wellbeing-preview .jl-public-signin p { color:#a99f8d; font-size:12px; line-height:1.7; }
+#boarding-wellbeing-preview .jl-public .jc-public-form { display:grid; gap:17px; margin-top:24px; }
+#boarding-wellbeing-preview .jl-public .jc-public-form label { display:grid; gap:7px; color:#c2b8a4; font-size:12px; }
+#boarding-wellbeing-preview .jl-public .jc-public-form input { font-size:14px; min-height:45px; padding:12px; }
+#boarding-wellbeing-preview .jl-public .jc-public-form button { margin-top:5px; }
+#boarding-wellbeing-preview .jl-public [role="alert"] { color:#e3b3a0; padding:10px 0; }
+#boarding-wellbeing-preview .jl-public-columns { display:grid; grid-template-columns:1fr 1fr; gap:65px; border-top:1px solid #302c22; padding-top:40px; }
+#boarding-wellbeing-preview .jl-public-columns h2 { font-size:30px; margin:6px 0 20px; }
+#boarding-wellbeing-preview .jl-section-heading { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+#boarding-wellbeing-preview .jl-public-year { color:#898171; font-size:11px; }
+#boarding-wellbeing-preview .jl-public-timings { margin:0; }
+#boarding-wellbeing-preview .jl-public-timings > div { display:flex; justify-content:space-between; gap:20px; padding:14px 0; border-bottom:1px solid #2f2a20; font-size:12px; }
+#boarding-wellbeing-preview .jl-public-timings dt { color:#bcb19c; }
+#boarding-wellbeing-preview .jl-public-timings dd { margin:0; text-align:right; color:#d7cdbc; white-space:nowrap; }
+#boarding-wellbeing-preview .jl-public-columns ul { list-style:none; padding:0; }
+#boarding-wellbeing-preview .jl-public-columns li { display:flex; justify-content:space-between; gap:20px; padding:14px 0; border-bottom:1px solid #2f2a20; color:#bcb19c; font-size:12px; }
+#boarding-wellbeing-preview .jl-public-columns li strong { font-weight:450; color:#d7cdbc; }
+#boarding-wellbeing-preview .jl-public-columns li span { text-align:right; }
+#boarding-wellbeing-preview .jl-public-columns a { display:inline-block; margin-top:15px; font-size:12px; }
+#boarding-wellbeing-preview .jl-public-support { display:flex; gap:40px; justify-content:space-between; padding:28px; margin-top:45px; border:1px solid #393023; background:#16130e; border-radius:12px; }
+#boarding-wellbeing-preview .jl-public-support h2 { font-size:27px; margin:0 0 8px; }
+#boarding-wellbeing-preview .jl-public-support p { color:#a99a82; font-size:12px; margin:0; }
+#boarding-wellbeing-preview .jl-public-support a { font-size:12px; align-self:center; white-space:nowrap; }
+#boarding-wellbeing-preview .jl-public-footer { display:flex; flex-wrap:wrap; gap:20px; justify-content:space-between; padding:30px 0 0; font-size:10px; color:#847967; }
+#boarding-wellbeing-preview .jl-public-footer a { color:#a2947d; font-size:11px; }
+#boarding-wellbeing-preview .jl-public-footer nav { display:flex; flex-wrap:wrap; gap:20px; }
+
+@media(max-width:1100px) {
+  #boarding-wellbeing-preview .jc-shell.jc-private .jc-side { gap:0 15px; padding-inline:24px; }
+  #boarding-wellbeing-preview .jc-private .bw-menu .bw-menu-item { padding-inline:7px; font-size:11px; }
+  #boarding-wellbeing-preview .jl-home-orb { width:310px; height:310px; }
+  #boarding-wellbeing-preview .jl-public-hero { gap:50px; }
+}
+@media(max-width:899px) {
+  #boarding-wellbeing-preview .jc-shell.jc-private .jc-side { grid-template-columns:1fr auto; grid-template-areas:"brand actions" "nav nav" "status status"; padding:16px 22px 0; }
+  #boarding-wellbeing-preview .jc-private .bw-mobile-actions .bw-menu-toggle { display:inline-flex; color:#c9bdab; background:#1c1914; border-color:#44392b; font-weight:450; }
+  #boarding-wellbeing-preview .jc-private .bw-menu { display:none; justify-self:stretch; flex-wrap:wrap; gap:5px; padding-top:15px; }
+  #boarding-wellbeing-preview .jc-private .bw-header[data-menu-open="true"] .bw-menu { display:flex; }
+  #boarding-wellbeing-preview .jc-private .bw-menu .bw-menu-item { min-height:44px; flex:1 0 20%; font-size:12px; }
+  #boarding-wellbeing-preview .jc-private .jc-side-status { gap:12px; }
+  #boarding-wellbeing-preview .jc-private .jc-side-status > [data-page="talk"] { display:none; }
+  #boarding-wellbeing-preview .jc-private .jc-side-status > form { margin-left:auto; }
+  #boarding-wellbeing-preview .jc-main,#boarding-wellbeing-preview .jc-private[data-hub="true"] .jc-main { padding:24px 22px 40px; }
+  #boarding-wellbeing-preview .jc-private .jc-grid { gap:16px; }
+  #boarding-wellbeing-preview .jc-grid .jc-core .bw-core-assembly { grid-template-columns:1.1fr .9fr; }
+  #boarding-wellbeing-preview .jl-home-orb { width:260px; height:290px; }
+  #boarding-wellbeing-preview .jc-grid .jc-panel { padding:20px; }
+  #boarding-wellbeing-preview .jx-goals-layout { grid-template-columns:1fr; }
+  #boarding-wellbeing-preview .jl-public-nav { gap:14px; }
+  #boarding-wellbeing-preview .jl-public-clock { display:none; }
+  #boarding-wellbeing-preview .jl-public-hero { gap:25px; }
+}
+@media(max-width:620px) {
+  #boarding-wellbeing-preview .jc-main,#boarding-wellbeing-preview .jc-private[data-hub="true"] .jc-main { padding:20px 18px 35px; }
+  #boarding-wellbeing-preview .jc-shell.jc-private .jc-side { padding:13px 18px 0; }
+  #boarding-wellbeing-preview .jc-private .bw-brand strong { font-size:24px; }
+  #boarding-wellbeing-preview .jc-private .bw-brand small { display:none; }
+  #boarding-wellbeing-preview .jc-private .bw-mobile-actions .bw-mobile-help { font-size:11px; padding:7px; min-height:40px; }
+  #boarding-wellbeing-preview .jc-private .jc-side-status > [data-connection] { flex:1; font-size:11px; gap:6px; }
+  #boarding-wellbeing-preview .jc-private .jc-side-status > [data-open-commands] { font-size:10px; gap:5px; }
+  #boarding-wellbeing-preview .jc-private .jc-side-status kbd { display:none; }
+  #boarding-wellbeing-preview .jc-private .jc-grid { grid-template-columns:minmax(0,1fr); grid-template-areas:"top" "core" "brief" "ask" "schedule" "feed" "academic" "record" "progress" "shortcuts"; gap:17px; }
+  #boarding-wellbeing-preview .jc-top .bw-command-clock { font-size:11px; gap:5px; }
+  #boarding-wellbeing-preview .jc-top .bw-command-badge { display:none; }
+  #boarding-wellbeing-preview .jc-grid .jc-core { min-height:0; padding:0 0 30px; }
+  #boarding-wellbeing-preview .jc-grid .jc-core .bw-core-assembly { display:flex; flex-direction:column-reverse; }
+  #boarding-wellbeing-preview .jc-grid .jc-globe-copy { width:100%; text-align:center; justify-items:center; }
+  #boarding-wellbeing-preview .jc-grid .jc-globe-copy h1 { font-size:45px; margin:17px 0; }
+  #boarding-wellbeing-preview .jc-grid .jc-core-caption { font-size:11px; }
+  #boarding-wellbeing-preview .jl-home-orb { width:240px; height:205px; margin:-14px 0 6px; }
+  #boarding-wellbeing-preview .jc-grid .jc-core .jl-hero-note { font-size:12px; }
+  #boarding-wellbeing-preview .jl-hero-actions { justify-content:center; margin-top:22px; gap:9px; }
+  #boarding-wellbeing-preview .jl-hero-actions :is(.bw-primary-button,.bw-secondary) { padding:10px 12px; font-size:11px; }
+  #boarding-wellbeing-preview .jc-grid .bw-core-marker { display:none; }
+  #boarding-wellbeing-preview .jc-shell.jc-private h1 { font-size:37px; }
+  #boarding-wellbeing-preview .jc-shell.jc-private h2,#boarding-wellbeing-preview .jc-grid .jc-panel h2 { font-size:25px; }
+  #boarding-wellbeing-preview .jc-shell :is(.bw-jarvis-panel,.jc-panel),#boarding-wellbeing-preview .jc-grid .jc-panel { padding:20px 18px; }
+  #boarding-wellbeing-preview .jc-grid .jc-core { padding:0 0 30px; }
+  #boarding-wellbeing-preview .jc-schedule .bw-jarvis-events li { grid-template-columns:42px minmax(0,1fr); gap:5px 9px; }
+  #boarding-wellbeing-preview .jc-schedule .bw-jarvis-event-type { grid-column:2; justify-self:start; }
+  #boarding-wellbeing-preview .jc-academic .jc-list li { grid-template-columns:minmax(0,1fr); gap:4px; }
+  #boarding-wellbeing-preview .jc-academic .jc-list li > span { text-align:left; }
+  #boarding-wellbeing-preview .jc-shell :is(input,textarea,select),#boarding-wellbeing-preview .jc-shell .jx-goals :is(input,textarea,select) { font-size:16px; }
+  #boarding-wellbeing-preview .jc-shell .bw-jarvis-query input { font-size:13px; }
+  #boarding-wellbeing-preview .jx-goal-list { grid-template-columns:1fr; }
+  #boarding-wellbeing-preview .jx-goal-card { padding:20px; }
+  #boarding-wellbeing-preview .jl-public-header { padding:18px 22px; gap:20px; }
+  #boarding-wellbeing-preview .jl-public-nav { gap:14px; }
+  #boarding-wellbeing-preview .jl-public-nav a { font-size:10px; }
+  #boarding-wellbeing-preview .jl-public-nav a[href="#calendar"] { display:none; }
+  #boarding-wellbeing-preview .jl-public-main { padding:20px 22px 30px; }
+  #boarding-wellbeing-preview .jl-public-hero { display:block; padding-bottom:35px; }
+  #boarding-wellbeing-preview .jl-public-intro { text-align:center; padding-bottom:30px; }
+  #boarding-wellbeing-preview .jl-public-intro .jarvis-orb { width:230px; height:210px; margin:-5px auto; }
+  #boarding-wellbeing-preview .jl-public h1 { font-size:43px; }
+  #boarding-wellbeing-preview .jl-public-intro > p { font-size:14px; line-height:1.75; }
+  #boarding-wellbeing-preview .jl-public-signin { padding:25px 22px; }
+  #boarding-wellbeing-preview .jl-public .jc-public-form input { font-size:16px; }
+  #boarding-wellbeing-preview .jl-public-columns { grid-template-columns:1fr; gap:28px; padding-top:28px; }
+  #boarding-wellbeing-preview .jl-public-support { display:block; padding:22px; margin-top:28px; }
+  #boarding-wellbeing-preview .jl-public-support a { display:inline-block; margin-top:16px; }
+  .jc-demo-banner { padding:7px 14px; font-size:9px; }
+}
+@media(max-width:400px) {
+  #boarding-wellbeing-preview .jc-shell .bw-week-grid[data-calendar-layout="week"] { grid-template-columns:minmax(0,1fr); }
+}
+@media(prefers-reduced-motion:reduce) { #boarding-wellbeing-preview .jc-shell * { scroll-behavior:auto; transition:none; animation:none; } }
+
+/* Secondary explanations stay available without competing with the task. */
+#boarding-wellbeing-preview .jx-guidance { margin:10px 0; color:#aaa79c; font-size:12px; }
+#boarding-wellbeing-preview .jx-guidance summary { cursor:pointer; padding:6px 0; width:fit-content; color:#c7c2b6; }
+#boarding-wellbeing-preview .jx-guidance p { margin:8px 0 12px; max-width:68ch; line-height:1.65; }
+#boarding-wellbeing-preview .jc-grid .jc-panel > .bw-jarvis-label,
+#boarding-wellbeing-preview .jc-grid .jc-core-caption,
+#boarding-wellbeing-preview .jc-grid .bw-core-marker,
+#boarding-wellbeing-preview .jc-grid .bw-jarvis-examples { display:none; }
+#boarding-wellbeing-preview .jc-grid .jc-panel { padding-block:20px; }
+#boarding-wellbeing-preview .jc-grid .jc-core { min-height:290px; }
+#boarding-wellbeing-preview .jl-home-orb { width:290px; height:290px; }
+@media(max-width:620px) { #boarding-wellbeing-preview .jl-home-orb { width:210px; height:175px; } }
